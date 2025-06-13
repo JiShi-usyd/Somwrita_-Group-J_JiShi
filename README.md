@@ -9,6 +9,7 @@ The point is, unlike the traditional Pac-Man gameplay, where they need to eat re
 ### Animation
 In this project, I animated Pacman's position, the ghost's state, and the game over state. 
 #### Technical Implementation
-Pacman's animation is to change the direction of Pacman's movement through keyboard input, update the coordinates according to the direction, and form a moving animation by drawing the new coordinates. The ghost's status change is to initialize the random ghost position first. When Pacman encounters a ghost, checkEatGhosts() will set alive to false. The game ends when all ghosts are eaten and gameOver becomes true. Detect gameOver in draw() and display a prompt box.
-The maze consists of a series of path segments, and Pac-Man's movement is restricted to these paths. Coordinate checks are required to ensure that Pac-Man stays on a valid path.
-A simple distance-based check is performed between Pac-Man and the ghost, and the ghost disappears when it is within a certain range of Pac-Man.
+Pacman's animation is implemented by changing its direction through keyboard input. The movement updates its coordinates according to the current direction, and a new position is drawn each frame to create the illusion of animation. 
+Ghosts are initialized at random path positions, each with an `alive` state set to `true`. When Pacman gets close to a ghost, the `checkEatGhosts()` function detects the collision based on distance and sets the ghost’s `alive` status to `false`. 
+The game ends when all ghosts are eaten, and the `gameOver` flag becomes `true`. This state is checked in the `draw()` loop, which then displays a success message overlay.
+Pacman's movement is constrained to a series of predefined maze paths. Coordinate checks are performed to ensure that Pacman remains on a valid path before updating its position.
