@@ -146,7 +146,16 @@ function draw() {
   text("Tip: If stuck, try moving Pacman slightly in different directions", width / 2, height - 95);
 
 }
+function keyPressed() {
+  if (key === 'w') pacman.dir = 'up';
+  else if (key === 's') pacman.dir = 'down';
+  else if (key === 'a') pacman.dir = 'left';
+  else if (key === 'd') pacman.dir = 'right';
 
+  if (key === 'r' && gameOver) {
+    resetGame();
+  }
+}
 function drawBackground() {
   image(layer, 138 + offsetX, 270);
 }
