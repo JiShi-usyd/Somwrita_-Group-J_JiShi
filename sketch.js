@@ -119,13 +119,32 @@ function draw() {
   drawPath();
   drawDots();
 
-  drawPixelPacman(138, 486, color(255, 255, 0)); // pacman
-  drawPixelGhost(288, 435, color(255, 0, 0)); // red
-  drawPixelGhost(223, 360, color(255, 100, 0)); //orange
-  drawPixelGhost(108, 635, color(0, 200, 0)); //green
-  drawPixelGhost(95, 405, color(90, 90, 255)); //purple
+  movePacman(); // Control Pacman's movement
+  checkEatGhosts();// Check if the ghost is eaten and set it to disappear
+
+  drawPixelPacman(pacman.x, pacman.y, color(255, 255, 0)); // pacman
+  for (let g of ghosts) {
+    if (g.alive) drawPixelGhost(g.x, g.y, g.color);
+  }// Draw only living ghosts
+  if (gameOver) {
+    fill(0, 200, 0, 200);
+    rect(138 + offsetX + 100, 270 + 150, 200, 80, 10);
+    fill(255);
+    textSize(24);
+    text("Mission Success!", 138 + offsetX + 200, 270 + 180);
+    textSize(16);
+    fill(255);
+    text("Press R to restart", 138 + offsetX + 200, 270 + 210);
+  }// When the game is won, display the success prompt box
 
   pop();
+  fill(255, 255, 255, 200);
+  rect(width / 2 - 200, height - 120, 400, 40, 5);
+  fill(0);
+  textSize(14);
+  textAlign(CENTER);
+  text("Tip: If stuck, try moving Pacman slightly in different directions", width / 2, height - 95);
+
 }
 
 function drawBackground() {
