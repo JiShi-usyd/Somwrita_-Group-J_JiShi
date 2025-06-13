@@ -22,6 +22,8 @@ function preload() {
 }
 
 function setup() {
+  initializeGhosts(); 
+  gameOver = false;
   createCanvas(windowWidth, windowHeight);
   
   noStroke();
@@ -249,7 +251,9 @@ function checkEatGhosts() {
     gameOver = true;
   }
 }
-
+function color(r, g, b) {
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
 
 function drawBody(){
