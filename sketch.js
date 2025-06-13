@@ -559,3 +559,8 @@ function movePacman() {
     pacman.y = screenY + 270;
   }
 }
+function resetGame() {
+  gameOver = false;
+  pacman = { x: 138, y: 486, dir: 'none' }; // Reset Pacman position
+  initializeGhosts(); // Reset ghost position
+}
