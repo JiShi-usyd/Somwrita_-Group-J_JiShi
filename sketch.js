@@ -171,6 +171,7 @@ function drawScreen() {
 }
 
 function setPaths(){
+  paths = [];
   let originalPaths = [
     // horizon paths
     [25, 25, 185, 25],
@@ -525,7 +526,7 @@ function drawPixelPacman(x, y, bodyColor) {
 }
 function movePacman() {
   if (gameOver) return; 
-  let speed = 4;
+  let speed = 3;
   
   // Pacman's position inside the screen
   let screenX = pacman.x - (138 + offsetX); // Subtract the x offset of the screen area
