@@ -519,3 +519,43 @@ function drawPixelPacman(x, y, bodyColor) {
     }
   }
 }
+function movePacman() {
+  if (gameOver) return; 
+  let speed = 4;
+  
+  // Pacman's position inside the screen
+  let screenX = pacman.x - (138 + offsetX); // Subtract the x offset of the screen area
+  let screenY = pacman.y - 270; // Subtract the y offset of the screen area
+  
+  // Calculate the next position based on the direction
+  if (pacman.dir === 'up') screenY -= speed;
+  else if (pacman.dir === 'down') screenY += speed;
+  else if (pacman.dir === 'left') screenX -= speed;
+  else if (pacman.dir === 'right') screenX += speed;
+
+  // Check if the new position is on the path
+  let onPath = false;
+  for (let p of paths) {
+    // Horizontal path detection
+    if (p.y1 === p.y2 && Math.abs(screenY - p.y1) < 15) {
+      if (screenX >= Math.min(p.x1, p.x2) - 15 && 
+          screenX <= Math.max(p.x1, p.x2) + 15) {
+        onPath = true;
+        break;
+      }
+    }
+    //Vertical path detection
+    else if (p.x1 === p.x2 && Math.abs(screenX - p.x1) < 15) {
+      if (screenY >= Math.min(p.y1, p.y2) - 15 && 
+          screenY <= Math.max(p.y1, p.y2) + 15) {
+        onPath = true;
+        break;
+      }
+    }
+  }
+
+  if (onPath || pacman.dir === 'none') {
+    pacman.x = screenX + (138 + offsetX);
+    pacman.y = screenY + 270;
+  }
+}
