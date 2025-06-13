@@ -4,6 +4,7 @@ My interaction method is to use the keyboard to interact: use the W, S, A, and D
 ## Details
 ### Difference
 The point is, unlike the traditional Pac-Man gameplay, where they need to eat rectangular pixels in the channel and avoid ghosts to get points, our gameplay is to "eat" the ghosts.
+
 ![A gif of Pacman](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG94enNkMGF3cmlucjB1ZzNuZjM4dzVuZDA1cDd3aWJoazBkdnR4eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/d9QiBcfzg64Io/giphy.gif)
 ### Technical Implementation
 The maze consists of a series of path segments, and Pac-Man's movement is restricted to these paths. Coordinate checks are required to ensure that Pac-Man stays on a valid path.
