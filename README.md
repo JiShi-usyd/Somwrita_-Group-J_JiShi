@@ -16,3 +16,7 @@ Ghosts are initialized at random path positions, each with an `alive` state set 
 The game ends when all ghosts are eaten, and the `gameOver` flag becomes `true`. This state is checked in the `draw()` loop, which then displays a success message overlay.
 
 Pacman's movement is constrained to a series of predefined maze paths. Coordinate checks are performed to ensure that Pacman remains on a valid path before updating its position.
+##### Collision Detection
+This technology is used to determine whether Pac-Man has eaten a ghost, so that the player wins when all ghosts are eaten. In `draw()`, `dist(pacman.x, pacman.y, ghost.x, ghost.y)` is called to calculate the distance between Pac-Man and each ghost. If the distance is less than a certain threshold,such as 16 pixels, it means a collision has occurred. Once a collision occurs, the ghost's state is set to alive = false, and it will no longer be drawn.
+[Link Text](https://www.youtube.com/watch?v=cZ_VHAT_Sq4)
+[Link Text](https://codeguppy.com/blog/how-to-implement-collision-detection-between-two-circles-using-p5.js/index.html?utm_source=chatgpt.com)
