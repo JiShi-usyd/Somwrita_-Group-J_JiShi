@@ -236,7 +236,19 @@ function drawDots(){
     }
   }
 }
-
+function checkEatGhosts() {
+  let allEaten = true;
+  for (let g of ghosts) {
+    if (g.alive && dist(pacman.x, pacman.y, g.x, g.y) < 16) {
+      g.alive = false;//Being eaten
+    }
+    if (g.alive) allEaten = false;// There are still ghosts alive
+  }
+  
+  if (allEaten) {
+    gameOver = true;
+  }
+}
 
 
 
