@@ -8,7 +8,13 @@ let colors = ['red', 'blue', 'yellow', 'white'];
 let rectWidths = [40, 50, 60, 70, 80, 90];
 let rectHeights = [30, 40, 50];
 let paths = [];
-
+let gameOver = false;// Flag indicating whether the game is over
+let pacman = {
+  x: 138,
+  y: 486,
+  dir: 'none'
+};// Pacman's current status
+let ghosts = []; // Ghost array
 let layer; 
 
 function preload() {
