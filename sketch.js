@@ -257,7 +257,7 @@ function color(r, g, b) {
 
 
 function drawBody(){
-  // black (机身)
+  // black (body)
     fill(0, 0, 0);
   rect(78 + offsetX, -30, 520, 220);
   rect(88 + offsetX, 220, 500, 500);
