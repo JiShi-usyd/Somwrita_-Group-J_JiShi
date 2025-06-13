@@ -82,7 +82,29 @@ push();
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+function initializeGhosts() {
+  const spawnPoints = [
+    {x: 25, y: 25},   
+    {x: 185, y: 25},  
+    {x: 265, y: 25},  
+    {x: 375, y: 25},  
+    {x: 25, y: 105},  
+    {x: 265, y: 105}, 
+    {x: 105, y: 225}, 
+    {x: 285, y: 225}, 
+    {x: 25, y: 375},  
+    {x: 185, y: 375}, 
+    {x: 285, y: 375}, 
+    {x: 375, y: 375}  
+  ];// Path coordinates where ghosts can be generated
 
+  ghosts = [
+    {x: random(spawnPoints).x + 138 + offsetX, y: random(spawnPoints).y + 270, color: color(255, 0, 0), alive: true},
+    {x: random(spawnPoints).x + 138 + offsetX, y: random(spawnPoints).y + 270, color: color(255, 100, 0), alive: true},
+    {x: random(spawnPoints).x + 138 + offsetX, y: random(spawnPoints).y + 270, color: color(0, 200, 0), alive: true},
+    {x: random(spawnPoints).x + 138 + offsetX, y: random(spawnPoints).y + 270, color: color(90, 90, 255), alive: true}
+  ];// Generate 4 ghosts of different colors, initially set to alive state
+}
 function draw() {
   background(255, 250, 205);
 
